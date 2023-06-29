@@ -1,0 +1,329 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgrekoxoi1ork"]
+
+[ext_resource type="Script" path="res://scenes/Environment.cs" id="1_1sb6h"]
+[ext_resource type="Script" path="res://scenes/CanvasLayer.cs" id="2_0ktv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs7ko"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Environment" type="Node2D"]
+script = ExtResource("1_1sb6h")
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_0ktv2")
+
+[node name="MenuContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1162.0
+offset_top = 8.0
+offset_right = 1432.0
+offset_bottom = 212.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qs7ko")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/MenuContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Terrain" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnGenerate" type="Button" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+text = "Generate"
+
+[node name="VBoxMapSize" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblMapSize" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize"]
+layout_mode = 2
+text = "Map Size"
+
+[node name="HBoxMapLabels" type="HBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize"]
+layout_mode = 2
+theme_override_constants/separation = 98
+
+[node name="LblWidth" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Width"
+
+[node name="LblHeight" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Height"
+
+[node name="HBoxWidthHeight" type="HBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize"]
+layout_mode = 2
+
+[node name="LeWidth" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "256"
+placeholder_text = "256"
+caret_blink = true
+
+[node name="LeHeight" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "256"
+placeholder_text = "256"
+caret_blink = true
+
+[node name="VBoxSeed" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblSeed" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed"]
+layout_mode = 2
+text = "Seed"
+
+[node name="LeSeed" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed"]
+layout_mode = 2
+text = "0"
+caret_blink = true
+
+[node name="CbRandomSeed" type="CheckBox" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Generate Random Seed"
+
+[node name="VBoxCbs" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CbGenerateMapAfterChange" type="CheckBox" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "Generate Map After Value Change"
+
+[node name="CbGenerateWithoutDelay" type="CheckBox" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+button_pressed = true
+text = "Generate Without Delay"
+
+[node name="VBoxGrassLevel" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblGrassLevel" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel"]
+layout_mode = 2
+text = "Grass Level"
+
+[node name="HslGrassLevel" type="HSlider" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel"]
+layout_mode = 2
+max_value = 1000.0
+value = 250.0
+
+[node name="LeGrassLevel" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel"]
+layout_mode = 2
+caret_blink = true
+
+[node name="VBoxHillLevel" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblHillLevel" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel"]
+layout_mode = 2
+text = "Hill Level"
+
+[node name="HslHillLevel" type="HSlider" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel"]
+layout_mode = 2
+max_value = 1000.0
+value = 250.0
+
+[node name="LeHillLevel" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel"]
+layout_mode = 2
+caret_blink = true
+
+[node name="VBoxRockLevel" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblRockLevel" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel"]
+layout_mode = 2
+text = "Rock Level"
+
+[node name="HslRockLevel" type="HSlider" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel"]
+layout_mode = 2
+max_value = 1000.0
+value = 500.0
+
+[node name="LeRockLevel" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel"]
+layout_mode = 2
+caret_blink = true
+
+[node name="VBoxSnowLevel" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LblSnowLevel" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel"]
+layout_mode = 2
+text = "Snow Level"
+
+[node name="HslSnowLevel" type="HSlider" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel"]
+layout_mode = 2
+max_value = 1000.0
+value = 750.0
+
+[node name="LeSnowLevel" type="LineEdit" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel"]
+layout_mode = 2
+
+[node name="Noise" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxNoiseType" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise"]
+layout_mode = 2
+
+[node name="LblNoiseType" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType"]
+layout_mode = 2
+text = "Noise Type"
+
+[node name="ItLiNoiseType" type="ItemList" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType"]
+layout_mode = 2
+auto_height = true
+item_count = 6
+item_0/text = "Simplex"
+item_1/text = "Simplex Smooth"
+item_2/text = "Cellular"
+item_3/text = "Perlin"
+item_4/text = "Value Cubic"
+item_5/text = "Value"
+
+[node name="VBoxFractalType" type="VBoxContainer" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise"]
+layout_mode = 2
+
+[node name="LblFractalType" type="Label" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType"]
+layout_mode = 2
+text = "Fractal Type"
+
+[node name="ItLiFractalType" type="ItemList" parent="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType"]
+layout_mode = 2
+auto_height = true
+item_count = 4
+item_0/text = "None"
+item_1/text = "FBM"
+item_2/text = "Ridged"
+item_3/text = "Ping Pong"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TimerGenerateMap" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/BtnGenerate" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/BtnGenerate" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/BtnGenerate" to="." method="_on_btn_generate_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/LblMapSize" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/LblMapSize" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels/LblWidth" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels/LblWidth" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels/LblHeight" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxMapLabels/LblHeight" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight/LeWidth" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight/LeWidth" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight/LeHeight" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxMapSize/HBoxWidthHeight/LeHeight" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/LblSeed" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/LblSeed" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/LeSeed" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/LeSeed" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/CbRandomSeed" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSeed/CbRandomSeed" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateMapAfterChange" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateMapAfterChange" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateMapAfterChange" to="." method="_on_cb_generate_map_after_change_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateWithoutDelay" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateWithoutDelay" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxCbs/CbGenerateWithoutDelay" to="." method="_on_cb_generate_without_delay_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/LblGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/LblGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/HslGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/HslGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="value_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/HslGrassLevel" to="." method="_on_hsl_grass_level_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/LeGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/LeGrassLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="text_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxGrassLevel/LeGrassLevel" to="." method="_on_le_grass_level_text_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/LblHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/LblHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/HslHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/HslHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="value_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/HslHillLevel" to="." method="_on_hsl_hill_level_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/LeHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/LeHillLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="text_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxHillLevel/LeHillLevel" to="." method="_on_le_hill_level_text_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/LblRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/LblRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/HslRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/HslRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="value_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/HslRockLevel" to="." method="_on_hsl_rock_level_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/LeRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/LeRockLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="text_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxRockLevel/LeRockLevel" to="." method="_on_le_rock_level_text_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/LblSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/LblSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/HslSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/HslSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="value_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/HslSnowLevel" to="." method="_on_hsl_snow_level_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/LeSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/LeSnowLevel" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="text_changed" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Terrain/VBoxSnowLevel/LeSnowLevel" to="." method="_on_le_snow_level_text_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType/LblNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType/LblNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="item_selected" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType/ItLiNoiseType" to="." method="_on_it_li_noise_type_item_selected"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType/ItLiNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxNoiseType/ItLiNoiseType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType/LblFractalType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType/LblFractalType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="item_selected" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType/ItLiFractalType" to="." method="_on_it_li_fractal_type_item_selected"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType/ItLiFractalType" to="CanvasLayer" method="_on_ui_element_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuContainer/MarginContainer/TabContainer/Noise/VBoxFractalType/ItLiFractalType" to="CanvasLayer" method="_on_ui_element_mouse_exited"]
+[connection signal="timeout" from="TimerGenerateMap" to="." method="_on_timer_generate_map_timeout"]
