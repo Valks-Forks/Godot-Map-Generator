@@ -38,11 +38,11 @@ public partial class MapSettings : Node {
 	private static float _rockLevel = 0.65f;
 	private static float _snowLevel = 0.75f;
 
-	public static Color COLOR_TERRAIN_WATER = new Color("#1E53FF");
-	public static Color COLOR_TERRAIN_GRASS = new Color("#37B20A");
-	public static Color COLOR_TERRAIN_HILL = new Color("#85CC24");
-    public static Color COLOR_TERRAIN_ROCK = new Color("#707070");
-    public static Color COLOR_TERRAIN_SNOW = new Color("#FFFFFF");
+	public static Color COLOR_TERRAIN_WATER = new("#1E53FF");
+	public static Color COLOR_TERRAIN_GRASS = new("#37B20A");
+	public static Color COLOR_TERRAIN_HILL = new("#85CC24");
+    public static Color COLOR_TERRAIN_ROCK = new("#707070");
+    public static Color COLOR_TERRAIN_SNOW = new("#FFFFFF");
 
 	public static int maxHeightValue = 255;
 

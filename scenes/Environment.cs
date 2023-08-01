@@ -10,7 +10,7 @@ public partial class Environment : Node2D {
 	Camera2D camera2D;							
 	Timer timerGenerateMap;
 
-	NoiseManager noiseManager = new NoiseManager();
+	NoiseManager noiseManager = new();
 
 	LineEdit leImageWidth, leImageHeight;
 	LineEdit leSeed;
@@ -27,7 +27,7 @@ public partial class Environment : Node2D {
 	////////////////////
 	// Mouse-Scrolling
 	bool isMousePressed = false;
-	Vector2 lastMousePosition = new Vector2();
+	Vector2 lastMousePosition = new();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {

@@ -10,7 +10,7 @@ using System;
  *
  */
 public partial class NoiseManager : Node {
-	static FastNoiseLite defaultNoise = new FastNoiseLite();
+	static FastNoiseLite defaultNoise = new();
 
 	public FastNoiseLite debugNoise { get; set; } = new FastNoiseLite(); // TODO: aendern
 
