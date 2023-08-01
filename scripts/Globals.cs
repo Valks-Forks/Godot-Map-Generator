@@ -1,4 +1,4 @@
-using Godot;
+global using Godot;
 
 public partial class Globals : Node
 {

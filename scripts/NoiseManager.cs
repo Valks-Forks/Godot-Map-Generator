@@ -1,5 +1,3 @@
-using Godot;
-
 /**
  * NoiseManager.cs
  *
